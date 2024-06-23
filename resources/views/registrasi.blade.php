@@ -113,14 +113,15 @@
                         <h4 class="mb-2">Mulai Pertualanganmu Disini 🚀</h4>
                         <p class="mb-4">Buat aplikasi anda mudah dan menyenangkan!</p>
 
-                        <form id="formAuthentication" class="mb-3" action="#" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('registrasi.store') }}"
+                            method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Nama Lengkap</label>
-                                <input type="text" name="namalengkap"
-                                    class="form-control @error('namalengkap') is-invalid @enderror"
+                                <input type="text" name="name"
+                                    class="form-control @error('name') is-invalid @enderror"
                                     placeholder="Masukan nama lengkap">
-                                @error('namalengkap')
+                                @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -136,10 +137,14 @@
                             <div class="mb-3 form-password-toggle">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
+                                    <input type="password" id="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
