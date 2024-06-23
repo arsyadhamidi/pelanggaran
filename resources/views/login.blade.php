@@ -113,26 +113,39 @@
                         <h4 class="mb-2">Selamat datang di Yetera! 👋</h4>
                         <p class="mb-4">Silahkan masuk dengan akun anda dan memulai pertualangan anda</p>
 
-                        <form id="formAuthentication" class="mb-3" action="#" method="POST">
+                        <form id="formAuthentication" class="mb-3" action="{{ route('login.authenticate') }}"
+                            method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" class="form-control" id="email"
-                                    name="email-username" placeholder="Masukan email anda" autofocus />
+                                <input type="text" name="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    placeholder="Masukan email address" autofocus />
+                                @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Password</label>
-                                    <a href="auth-forgot-password-basic.html">
+                                    <a href="#">
                                         <small>Lupa password?</small>
                                     </a>
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
+                                    <input type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                         aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                @error('password')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
@@ -183,6 +196,19 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script>
+        $(document).ready(function() {
+            @if (Session::has('success'))
+                toastr.success("{{ Session::get('success') }}");
+            @endif
+
+            @if (Session::has('error'))
+                toastr.error("{{ Session::get('error') }}");
+            @endif
+        });
+    </script>
 </body>
 
 </html>
