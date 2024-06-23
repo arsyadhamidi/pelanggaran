@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Registrasi\RegistrasiController;
+use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Verify\VerifyEmailController;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,11 @@ Route::get('/registrasi', [RegistrasiController::class, 'index']);
 Route::get('/verify', [VerifyEmailController::class, 'index']);
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
+    // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    // Setting
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {});

@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('title', 'Dashboard | Yetera')
 @section('menuDashboard', 'active')
 
 @section('content')
@@ -10,7 +11,9 @@
                         <div class="card-body">
                             <h5 class="card-title text-primary">Selamat Datang {{ Auth()->user()->name ?? '-' }}! 🎉</h5>
                             <p class="mb-4">
-                                
+                                Selamat datang di Dashboard Anda, di mana segala sesuatu menjadi lebih mudah dan
+                                terorganisir. Dashboard Anda siap membantu! Lihatlah data terbaru dan kelola aktivitas Anda
+                                dengan efisien
                             </p>
 
                         </div>

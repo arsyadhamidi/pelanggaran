@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard | Yetera</title>
+    <title>@yield('title')</title>
 
     <meta name="description" content="" />
 
@@ -196,8 +196,13 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('images/profile.png') }}" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                        @if (Auth()->user()->foto_profile)
+                                            <img src="{{ asset('storage/' . Auth()->user()->foto_profile) }}" alt
+                                                class="w-px-40 h-auto rounded-circle" />
+                                        @else
+                                            <img src="{{ asset('images/profile.png') }}" alt
+                                                class="w-px-40 h-auto rounded-circle" />
+                                        @endif
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -206,8 +211,13 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{ asset('images/profile.png') }}" alt
-                                                            class="w-px-40 h-auto rounded-circle" />
+                                                        @if (Auth()->user()->foto_profile)
+                                                            <img src="{{ asset('storage/' . Auth()->user()->foto_profile) }}"
+                                                                alt class="w-px-40 h-auto rounded-circle" />
+                                                        @else
+                                                            <img src="{{ asset('images/profile.png') }}" alt
+                                                                class="w-px-40 h-auto rounded-circle" />
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
@@ -223,25 +233,9 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ route('setting.index') }}">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="d-flex align-items-center align-middle">
-                                                <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                                                <span class="flex-grow-1 align-middle">Billing</span>
-                                                <span
-                                                    class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                                            </span>
                                         </a>
                                     </li>
                                     <li>
@@ -281,20 +275,7 @@
                                     document.write(new Date().getFullYear());
                                 </script>
                                 , made with ❤️ by
-                                <a href="https://themeselection.com" target="_blank"
-                                    class="footer-link fw-bolder">ThemeSelection</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                    target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                    Themes</a>
-
-                                <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
-
-                                <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                    target="_blank" class="footer-link me-4">Support</a>
+                                Yetera
                             </div>
                         </div>
                     </footer>
@@ -311,11 +292,6 @@
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-        <a href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/" target="_blank"
-            class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
