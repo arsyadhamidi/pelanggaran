@@ -54,6 +54,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Setting
     Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::post('/setting/updateprofile', [SettingController::class, 'updateprofile'])->name('setting.updateprofile');
+    Route::post('/setting/updateemail', [SettingController::class, 'updateemail'])->name('setting.updateemail');
+    Route::post('/setting/updatepassword', [SettingController::class, 'updatepassword'])->name('setting.updatepassword');
+    Route::post('/setting/updategambar', [SettingController::class, 'updategambar'])->name('setting.updategambar');
+    Route::post('/setting/hapusgambar', [SettingController::class, 'hapusgambar'])->name('setting.hapusgambar');
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {});
