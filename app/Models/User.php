@@ -13,9 +13,4 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded = [];
-
-    public function konsumen()
-    {
-        return $this->belongsTo(Konsumen::class, 'konsumen_id');
-    }
 }

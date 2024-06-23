@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('level');
             $table->string('telp');
             $table->string('foto_profile')->nullable();
-            $table->foreignId('konsumen_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

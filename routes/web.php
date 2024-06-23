@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Login\LoginController;
+use App\Http\Controllers\Registrasi\RegistrasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+//  Login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+// Registrasi
+Route::get('/registrasi', [RegistrasiController::class, 'index']);

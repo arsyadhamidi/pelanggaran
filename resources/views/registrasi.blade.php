@@ -8,12 +8,12 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Login | Yetera</title>
+    <title>Register | Yetera</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('admin/assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,12 +52,12 @@
     <div class="container-xxl">
         <div class="authentication-wrapper authentication-basic container-p-y">
             <div class="authentication-inner">
-                <!-- Register -->
+                <!-- Register Card -->
                 <div class="card">
                     <div class="card-body">
                         <!-- Logo -->
                         <div class="app-brand justify-content-center">
-                            <a href="index.html" class="app-brand-link gap-2">
+                            <a href="/registrasi" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
                                     <svg width="25" viewBox="0 0 25 42" version="1.1"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -110,23 +110,31 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Selamat datang di Yetera! 👋</h4>
-                        <p class="mb-4">Silahkan masuk dengan akun anda dan memulai pertualangan anda</p>
+                        <h4 class="mb-2">Mulai Pertualanganmu Disini 🚀</h4>
+                        <p class="mb-4">Buat aplikasi anda mudah dan menyenangkan!</p>
 
                         <form id="formAuthentication" class="mb-3" action="#" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" class="form-control" id="email"
-                                    name="email-username" placeholder="Masukan email anda" autofocus />
+                                <label class="form-label">Nama Lengkap</label>
+                                <input type="text" name="namalengkap"
+                                    class="form-control @error('namalengkap') is-invalid @enderror"
+                                    placeholder="Masukan nama lengkap">
+                                @error('namalengkap')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Alamat Email</label>
+                                <input type="email" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    placeholder="Masukan email address">
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-                                    <a href="auth-forgot-password-basic.html">
-                                        <small>Lupa password?</small>
-                                    </a>
-                                </div>
+                                <label class="form-label" for="password">Password</label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password"
                                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -134,26 +142,39 @@
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Telepon</label>
+                                <input type="number" name="telp"
+                                    class="form-control @error('telp') is-invalid @enderror"
+                                    placeholder="Masukan nomor telepon">
+                                @error('telp')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                                    <label class="form-check-label" for="remember-me"> Ingat Saya </label>
+                                    <input class="form-check-input" type="checkbox" id="terms-conditions"
+                                        name="terms" />
+                                    <label class="form-check-label" for="terms-conditions">
+                                        Saya setuju
+                                        <a href="javascript:void(0);">Kebijakan & privasi</a>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
-                            </div>
+                            <button class="btn btn-primary d-grid w-100">Daftar</button>
                         </form>
 
                         <p class="text-center">
-                            <span>Anda belum punya akun?</span>
-                            <a href="/registrasi">
-                                <span>Registrasi!</span>
+                            <span>Anda sudah punya akun ?</span>
+                            <a href="/login">
+                                <span>Login</span>
                             </a>
                         </p>
                     </div>
                 </div>
-                <!-- /Register -->
+                <!-- Register Card -->
             </div>
         </div>
     </div>
