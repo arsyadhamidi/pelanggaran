@@ -187,7 +187,7 @@
     <!-- / Content -->
 
     <div class="buy-now">
-        <a href="#" target="_blank" class="btn btn-danger btn-buy-now">Halaman Utama</a>
+        <a href="/" target="_blank" class="btn btn-danger btn-buy-now">Halaman Utama</a>
     </div>
 
     <!-- Core JS -->

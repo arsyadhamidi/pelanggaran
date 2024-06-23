@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Super Admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'superadmin@gmail.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('12345678'),
             'level' => 'Super Admin',
