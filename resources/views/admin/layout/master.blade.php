@@ -125,36 +125,16 @@
                     </li>
 
                     <!-- Layouts -->
-                    <li class="menu-item">
+                    <li class="menu-item @yield('menuDataMaster')">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-layout"></i>
                             <div data-i18n="Layouts">Data Master</div>
                         </a>
 
                         <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="layouts-without-menu.html" class="menu-link">
-                                    <div data-i18n="Without menu">Without menu</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-without-navbar.html" class="menu-link">
-                                    <div data-i18n="Without navbar">Without navbar</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-container.html" class="menu-link">
-                                    <div data-i18n="Container">Container</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-fluid.html" class="menu-link">
-                                    <div data-i18n="Fluid">Fluid</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="layouts-blank.html" class="menu-link">
-                                    <div data-i18n="Blank">Blank</div>
+                            <li class="menu-item @yield('menuDataJurusan')">
+                                <a href="{{ route('data-jurusan.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Data Jurusan</div>
                                 </a>
                             </li>
                         </ul>
@@ -165,6 +145,14 @@
                         <a href="{{ route('data-user.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-user"></i>
                             <div data-i18n="Analytics">User Registrasi</div>
+                        </a>
+                    </li>
+
+                    {{-- Status Autentikasi --}}
+                    <li class="menu-item @yield('menuDataLevel')">
+                        <a href="{{ route('data-level.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-transfer-alt"></i>
+                            <div data-i18n="Analytics">Status Autentikasi</div>
                         </a>
                     </li>
                 </ul>
@@ -280,7 +268,7 @@
                                     document.write(new Date().getFullYear());
                                 </script>
                                 , made with ❤️ by
-                                Yetera
+                                Appoint
                             </div>
                         </div>
                     </footer>

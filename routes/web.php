@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminJurusanController;
+use App\Http\Controllers\Admin\AdminLevelController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Login\LoginController;
@@ -62,7 +64,23 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/setting/hapusgambar', [SettingController::class, 'hapusgambar'])->name('setting.hapusgambar');
 
     // Admin
-    Route::group(['middleware' => [CekLevel::class . ':Super Admin']], function () {
+    Route::group(['middleware' => [CekLevel::class . ':1']], function () {
+        // Level
+        Route::get('/data-level', [AdminLevelController::class, 'index'])->name('data-level.index');
+        Route::get('/data-level/create', [AdminLevelController::class, 'create'])->name('data-level.create');
+        Route::get('/data-level/edit/{id}', [AdminLevelController::class, 'edit'])->name('data-level.edit');
+        Route::post('/data-level/store', [AdminLevelController::class, 'store'])->name('data-level.store');
+        Route::post('/data-level/update/{id}', [AdminLevelController::class, 'update'])->name('data-level.update');
+        Route::post('/data-level/destroy/{id}', [AdminLevelController::class, 'destroy'])->name('data-level.destroy');
+
+        // Data Jurusan
+        Route::get('/data-jurusan', [AdminJurusanController::class, 'index'])->name('data-jurusan.index');
+        Route::get('/data-jurusan/create', [AdminJurusanController::class, 'create'])->name('data-jurusan.create');
+        Route::get('/data-jurusan/edit/{id}', [AdminJurusanController::class, 'edit'])->name('data-jurusan.edit');
+        Route::post('/data-jurusan/store', [AdminJurusanController::class, 'store'])->name('data-jurusan.store');
+        Route::post('/data-jurusan/update/{id}', [AdminJurusanController::class, 'update'])->name('data-jurusan.update');
+        Route::post('/data-jurusan/destroy/{id}', [AdminJurusanController::class, 'destroy'])->name('data-jurusan.destroy');
+
         // User Registrasi
         Route::get('/user-registrasi', [AdminUserController::class, 'index'])->name('data-user.index');
         Route::get('/user-registrasi/create', [AdminUserController::class, 'create'])->name('data-user.create');

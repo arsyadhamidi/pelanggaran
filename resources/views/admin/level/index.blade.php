@@ -1,42 +1,38 @@
 @extends('admin.layout.master')
-@section('title', 'User Registrasi | Appoint')
-@section('menuUserRegistrasi', 'active')
+@section('title', 'Status Autentikas | Appoint')
+@section('menuDataLevel', 'active')
 
 @section('content')
     <div class="row">
         <div class="col-lg">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('data-user.create') }}" class="btn btn-primary">
+                    <a href="{{ route('data-level.create') }}" class="btn btn-primary">
                         <i class="bx bx-plus"></i>
-                        Tambah Data User
+                        Tambahkan Data Status
                     </a>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-bordered table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <td style="width: 5%; text-align:center">No.</td>
-                                <td style="text-align:center">Nama Lengkap</td>
-                                <td style="text-align:center">Email</td>
-                                <td style="text-align:center">Status</td>
-                                <td style="text-align:center">Telepon</td>
-                                <td style="text-align:center">Aksi</td>
+                                <th style="width: 5%; text-align:center">No.</th>
+                                <th style="text-align:center">Status</th>
+                                <th style="text-align:center">ID</th>
+                                <th style="text-align:center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $data)
+                            @foreach ($levels as $data)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->name ?? '-' }}</td>
-                                    <td>{{ $data->email ?? '-' }}</td>
-                                    <td>{{ $data->level ?? '-' }}</td>
-                                    <td>{{ $data->telp ?? '-' }}</td>
+                                    <td>{{ $loop->iteration ?? '-' }}</td>
+                                    <td>{{ $data->namalevel ?? '-' }}</td>
+                                    <td>{{ $data->idlevel ?? '-' }}</td>
                                     <td>
-                                        <form action="{{ route('data-user.destroy', $data->id) }}" method="POST"
+                                        <form action="{{ route('data-level.destroy', $data->id) }}" method="POST"
                                             class="d-flex flex-wrap">
                                             @csrf
-                                            <a href="{{ route('data-user.edit', $data->id) }}"
+                                            <a href="{{ route('data-level.edit', $data->id) }}"
                                                 class="btn btn-sm btn-outline-info mx-2">
                                                 <i class="bx bx-edit"></i>
                                             </a>
@@ -77,7 +73,7 @@
             // Tampilkan SweetAlert saat tombol di klik
             Swal.fire({
                 icon: 'question',
-                title: 'Hapus User Registrasi?',
+                title: 'Hapus Status Autentikasi?',
                 text: 'Apakah anda yakin untuk menghapus data ini?',
                 showCancelButton: true, // Tampilkan tombol batal
                 confirmButtonText: 'Ya',

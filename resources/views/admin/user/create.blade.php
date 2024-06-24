@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'User Registrasi | Yetera')
+@section('title', 'User Registrasi | Appoint')
 @section('menuUserRegistrasi', 'active')
 
 @section('content')
