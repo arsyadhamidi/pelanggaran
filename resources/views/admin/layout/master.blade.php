@@ -137,6 +137,11 @@
                                     <div data-i18n="Without menu">Data Jurusan</div>
                                 </a>
                             </li>
+                            <li class="menu-item @yield('menuDataKelas')">
+                                <a href="{{ route('data-kelas.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Data Kelas</div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

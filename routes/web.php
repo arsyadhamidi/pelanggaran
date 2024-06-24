@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminJurusanController;
+use App\Http\Controllers\Admin\AdminKelasController;
 use App\Http\Controllers\Admin\AdminLevelController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -65,6 +66,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':1']], function () {
+
+        // Kelas
+        Route::get('/data-kelas', [AdminKelasController::class, 'index'])->name('data-kelas.index');
+        Route::get('/data-kelas/create', [AdminKelasController::class, 'create'])->name('data-kelas.create');
+        Route::get('/data-kelas/edit/{id}', [AdminKelasController::class, 'edit'])->name('data-kelas.edit');
+        Route::post('/data-kelas/store', [AdminKelasController::class, 'store'])->name('data-kelas.store');
+        Route::post('/data-kelas/update/{id}', [AdminKelasController::class, 'update'])->name('data-kelas.update');
+        Route::post('/data-kelas/destroy/{id}', [AdminKelasController::class, 'destroy'])->name('data-kelas.destroy');
+
         // Level
         Route::get('/data-level', [AdminLevelController::class, 'index'])->name('data-level.index');
         Route::get('/data-level/create', [AdminLevelController::class, 'create'])->name('data-level.create');
