@@ -13,4 +13,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded = [];
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class, 'level_id');
+    }
 }

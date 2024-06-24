@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\Registrasi\RegistrasiController;
 use App\Http\Controllers\Setting\SettingController;
@@ -21,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
-
-//  Landing
-Route::get('/', [LandingController::class, 'index']);
 
 //  Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

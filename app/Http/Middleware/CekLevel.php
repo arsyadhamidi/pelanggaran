@@ -18,7 +18,7 @@ class CekLevel
 
         info(json_encode($levels));
 
-        if (in_array($request->user()->level, $levels)) {
+        if (in_array($request->user()->level_id, $levels)) {
             return $next($request);
         }
 

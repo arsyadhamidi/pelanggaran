@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'email_verified_at' => Carbon::now(),
             'password' => bcrypt('12345678'),
-            'level' => 'Super Admin',
+            'level_id' => '1',
             'telp' => '082389882323',
         ]);
     }
