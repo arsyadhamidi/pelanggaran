@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Login\LoginController;
@@ -65,5 +66,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/setting/hapusgambar', [SettingController::class, 'hapusgambar'])->name('setting.hapusgambar');
 
     // Admin
-    Route::group(['middleware' => [CekLevel::class . ':Admin']], function () {});
+    Route::group(['middleware' => [CekLevel::class . ':Super Admin']], function () {
+        // User Registrasi
+        Route::get('/user-registrasi', [AdminUserController::class, 'index'])->name('data-user.index');
+        Route::get('/user-registrasi/create', [AdminUserController::class, 'create'])->name('data-user.create');
+        Route::get('/user-registrasi/edit/{id}', [AdminUserController::class, 'edit'])->name('data-user.edit');
+        Route::post('/user-registrasi/store', [AdminUserController::class, 'store'])->name('data-user.store');
+        Route::post('/user-registrasi/update/{id}', [AdminUserController::class, 'update'])->name('data-user.update');
+        Route::post('/user-registrasi/destroy/{id}', [AdminUserController::class, 'destroy'])->name('data-user.destroy');
+    });
 });
