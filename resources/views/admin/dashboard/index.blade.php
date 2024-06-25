@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title', 'Dashboard | Yetera')
+@section('title', 'Dashboard | Appoint')
 @section('menuDashboard', 'active')
 
 @section('content')

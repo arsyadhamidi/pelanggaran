@@ -17,7 +17,7 @@
                     </div>
                     <div class="mb-4 text-center">
                         <h5>{{ $users->name ?? '-' }}</h5>
-                        <p><i>{{ $users->level ?? '-' }}</i></p>
+                        <p><i>{{ $users->level->namalevel ?? '-' }}</i></p>
                     </div>
                     <hr>
                     <div class="mb-3">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="mb-3">
                         <p><b>Status</b><br>
-                            <i>{{ $users->level ?? '-' }}</i>
+                            <i>{{ $users->level->namalevel ?? '-' }}</i>
                         </p>
                     </div>
                     <div class="mb-3">

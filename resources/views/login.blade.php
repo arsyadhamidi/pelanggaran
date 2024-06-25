@@ -106,11 +106,11 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Yetera</span>
+                                <span class="app-brand-text demo text-body fw-bolder">Appoint</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2">Selamat datang di Yetera! 👋</h4>
+                        <h4 class="mb-2">Selamat datang di Appoint! 👋</h4>
                         <p class="mb-4">Silahkan masuk dengan akun anda dan memulai pertualangan anda</p>
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('login.authenticate') }}"

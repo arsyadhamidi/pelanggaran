@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminGuruController;
 use App\Http\Controllers\Admin\AdminJurusanController;
 use App\Http\Controllers\Admin\AdminKelasController;
 use App\Http\Controllers\Admin\AdminLevelController;
@@ -66,6 +67,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':1']], function () {
+
+        // Data Guru
+        Route::get('/data-guru', [AdminGuruController::class, 'index'])->name('data-guru.index');
+        Route::get('/data-guru/create', [AdminGuruController::class, 'create'])->name('data-guru.create');
+        Route::get('/data-guru/edit/{id}', [AdminGuruController::class, 'edit'])->name('data-guru.edit');
+        Route::post('/data-guru/store', [AdminGuruController::class, 'store'])->name('data-guru.store');
+        Route::post('/data-guru/update/{id}', [AdminGuruController::class, 'update'])->name('data-guru.update');
+        Route::post('/data-guru/destroy/{id}', [AdminGuruController::class, 'destroy'])->name('data-guru.destroy');
 
         // Kelas
         Route::get('/data-kelas', [AdminKelasController::class, 'index'])->name('data-kelas.index');

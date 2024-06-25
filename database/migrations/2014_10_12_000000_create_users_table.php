@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreignId('level_id');
             $table->string('telp');
             $table->string('foto_profile')->nullable();
+            $table->string('guru_id')->nullable();
+            $table->string('siswa_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

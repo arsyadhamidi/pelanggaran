@@ -104,7 +104,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Yetera</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">Appoint</span>
                     </a>
 
                     <a href="javascript:void(0);"
@@ -140,6 +140,11 @@
                             <li class="menu-item @yield('menuDataKelas')">
                                 <a href="{{ route('data-kelas.index') }}" class="menu-link">
                                     <div data-i18n="Without menu">Data Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item @yield('menuDataGuru')">
+                                <a href="{{ route('data-guru.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Data Guru</div>
                                 </a>
                             </li>
                         </ul>
@@ -222,7 +227,7 @@
                                                     <span
                                                         class="fw-semibold d-block">{{ Auth()->user()->name ?? '-' }}</span>
                                                     <small
-                                                        class="text-muted">{{ Auth()->user()->level ?? '-' }}</small>
+                                                        class="text-muted">{{ Auth()->user()->level->namalevel ?? '-' }}</small>
                                                 </div>
                                             </div>
                                         </a>

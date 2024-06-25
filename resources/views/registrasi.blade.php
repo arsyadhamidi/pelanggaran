@@ -106,7 +106,7 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">Yetera</span>
+                                <span class="app-brand-text demo text-body fw-bolder">Appoint</span>
                             </a>
                         </div>
                         <!-- /Logo -->

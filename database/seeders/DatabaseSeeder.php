@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Level;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Level::create([
+            'namalevel' => 'Super Admin',
+            'idlevel' => '1',
+        ]);
+
+        Level::create([
+            'namalevel' => 'Siswa',
+            'idlevel' => '2',
+        ]);
+
+        Level::create([
+            'namalevel' => 'Guru',
+            'idlevel' => '3',
+        ]);
+
+        Level::create([
+            'namalevel' => 'Waka',
+            'idlevel' => '4',
+        ]);
+
+        Level::create([
+            'namalevel' => 'Kepala Sekolah',
+            'idlevel' => '5',
+        ]);
+
         User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@gmail.com',
