@@ -163,9 +163,9 @@
                                     <div data-i18n="Without menu">Jenis Pelanggaran</div>
                                 </a>
                             </li>
-                            <li class="menu-item @yield('menuDataKelas')">
-                                <a href="{{ route('data-kelas.index') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Data Kelas</div>
+                            <li class="menu-item @yield('menuDataNamaPelanggaran')">
+                                <a href="{{ route('data-namapelanggaran.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Nama Pelanggaran</div>
                                 </a>
                             </li>
                             <li class="menu-item @yield('menuDataGuru')">

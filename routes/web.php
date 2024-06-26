@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminJenisPelanggaranController;
 use App\Http\Controllers\Admin\AdminJurusanController;
 use App\Http\Controllers\Admin\AdminKelasController;
 use App\Http\Controllers\Admin\AdminLevelController;
+use App\Http\Controllers\Admin\AdminNamaPelanggaranController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Login\LoginController;
@@ -68,6 +69,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':1']], function () {
+
+        // Nama Pelanggaran
+        Route::get('/data-namapelanggaran', [AdminNamaPelanggaranController::class, 'index'])->name('data-namapelanggaran.index');
+        Route::get('/data-namapelanggaran/create', [AdminNamaPelanggaranController::class, 'create'])->name('data-namapelanggaran.create');
+        Route::get('/data-namapelanggaran/edit/{id}', [AdminNamaPelanggaranController::class, 'edit'])->name('data-namapelanggaran.edit');
+        Route::post('/data-namapelanggaran/store', [AdminNamaPelanggaranController::class, 'store'])->name('data-namapelanggaran.store');
+        Route::post('/data-namapelanggaran/update/{id}', [AdminNamaPelanggaranController::class, 'update'])->name('data-namapelanggaran.update');
+        Route::post('/data-namapelanggaran/destroy/{id}', [AdminNamaPelanggaranController::class, 'destroy'])->name('data-namapelanggaran.destroy');
 
         // Jenis Pelanggaran
         Route::get('/data-jenispelanggaran', [AdminJenisPelanggaranController::class, 'index'])->name('data-jenispelanggaran.index');
