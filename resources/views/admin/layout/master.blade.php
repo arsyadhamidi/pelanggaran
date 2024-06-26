@@ -150,6 +150,32 @@
                         </ul>
                     </li>
 
+                    <!-- Layouts -->
+                    <li class="menu-item @yield('menuDataPelanggaran')">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-book"></i>
+                            <div data-i18n="Layouts">Data Pelanggaran</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item @yield('menuDataJenisPelanggaran')">
+                                <a href="{{ route('data-jenispelanggaran.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Jenis Pelanggaran</div>
+                                </a>
+                            </li>
+                            <li class="menu-item @yield('menuDataKelas')">
+                                <a href="{{ route('data-kelas.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Data Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item @yield('menuDataGuru')">
+                                <a href="{{ route('data-guru.index') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Data Guru</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     {{-- User Registrasi --}}
                     <li class="menu-item @yield('menuUserRegistrasi')">
                         <a href="{{ route('data-user.index') }}" class="menu-link">

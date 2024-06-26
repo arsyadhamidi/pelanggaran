@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Guru;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -78,6 +79,7 @@ class AdminGuruController extends Controller
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('12345678'),
             'level_id' => '3',
             'telp' => $request->telp,

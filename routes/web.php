@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminGuruController;
+use App\Http\Controllers\Admin\AdminJenisPelanggaranController;
 use App\Http\Controllers\Admin\AdminJurusanController;
 use App\Http\Controllers\Admin\AdminKelasController;
 use App\Http\Controllers\Admin\AdminLevelController;
@@ -67,6 +68,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Admin
     Route::group(['middleware' => [CekLevel::class . ':1']], function () {
+
+        // Jenis Pelanggaran
+        Route::get('/data-jenispelanggaran', [AdminJenisPelanggaranController::class, 'index'])->name('data-jenispelanggaran.index');
+        Route::get('/data-jenispelanggaran/create', [AdminJenisPelanggaranController::class, 'create'])->name('data-jenispelanggaran.create');
+        Route::get('/data-jenispelanggaran/edit/{id}', [AdminJenisPelanggaranController::class, 'edit'])->name('data-jenispelanggaran.edit');
+        Route::post('/data-jenispelanggaran/store', [AdminJenisPelanggaranController::class, 'store'])->name('data-jenispelanggaran.store');
+        Route::post('/data-jenispelanggaran/update/{id}', [AdminJenisPelanggaranController::class, 'update'])->name('data-jenispelanggaran.update');
+        Route::post('/data-jenispelanggaran/destroy/{id}', [AdminJenisPelanggaranController::class, 'destroy'])->name('data-jenispelanggaran.destroy');
 
         // Data Guru
         Route::get('/data-guru', [AdminGuruController::class, 'index'])->name('data-guru.index');
